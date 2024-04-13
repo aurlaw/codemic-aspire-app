@@ -10,4 +10,8 @@
         <ProjectReference Include="..\CodemicAspireApp.ServiceDefaults\CodemicAspireApp.ServiceDefaults.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="8.0.0-preview.5.24201.12" />
+    </ItemGroup>
+
 </Project>
