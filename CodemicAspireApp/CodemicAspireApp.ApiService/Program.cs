@@ -8,7 +8,7 @@ builder.Services.AddProblemDetails();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddCors();
 var app = builder.Build();
 
 
@@ -23,7 +23,10 @@ if (app.Environment.IsDevelopment())
 // Configure the HTTP request pipeline.
 app.UseExceptionHandler();
 app.UseHttpsRedirection();
-
+app.UseCors(static builder => 
+    builder.AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowAnyOrigin());
 
 
 var summaries = new[]

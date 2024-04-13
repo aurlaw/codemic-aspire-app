@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import WeatherIcon from './icons/IconWeather.vue'
+import SpinnerIcon from './icons/IconSpinner.vue'
 
 interface WeatherForecast {
   date: string
@@ -18,19 +19,18 @@ const loading = ref(true);
 const error = ref(null);
 
 onMounted(() => {
-/*
-*     fetch(`${import.meta.env.VITE_WEATHER_API_HTTPS || import.meta.env.VITE_WEATHER_API_HTTP}/weatherforecast`)
+
+     fetch(`${import.meta.env.VITE_WEATHER_API_HTTPS || import.meta.env.VITE_WEATHER_API_HTTP}/weatherforecast`)
       .then(response => response.json())
       .then(data => {
-        this.forecasts = data
+        forecasts.value = data
       })
       .catch(error => {
-        this.error = error
+        error.value = error
       })
-      .finally(() => (this.loading = false))
-  }
-
-* */
+      .finally(() => (
+          loading.value = false
+      ));
 })
 
 
@@ -51,8 +51,9 @@ onMounted(() => {
     <template #icon>
       <WeatherIcon />
     </template>
-    <template #heading>Weather</template>
-    <table>
+    <template #heading>Weather </template>
+    <SpinnerIcon v-show="loading"/>
+    <table v-show="!loading">
       <thead>
       <tr>
         <th>Date</th>
@@ -62,15 +63,15 @@ onMounted(() => {
       </tr>
       </thead>
       <tbody>
-<!--      <tr v-for="forecast in (forecasts as Forecasts)">-->
-<!--        <td>{{ forecast.date }}</td>-->
-<!--        <td>{{ forecast.temperatureC }}</td>-->
-<!--        <td>{{ forecast.temperatureF }}</td>-->
-<!--        <td>{{ forecast.summary }}</td>-->
-<!--      </tr>-->
+      <tr v-for="forecast in (forecasts as Forecasts)">
+        <td>{{ forecast.date }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
       </tbody>
     </table>
-    
+    {{error}}
   </WelcomeItem>
 
 
