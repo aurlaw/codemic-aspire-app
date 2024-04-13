@@ -6,10 +6,25 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+
+app.MapDefaultEndpoints();
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 // Configure the HTTP request pipeline.
 app.UseExceptionHandler();
+app.UseHttpsRedirection();
+
+
 
 var summaries = new[]
 {
@@ -27,9 +42,9 @@ app.MapGet("/weatherforecast", () =>
             ))
         .ToArray();
     return forecast;
-});
-
-app.MapDefaultEndpoints();
+})
+.WithName("GetWeatherForecast")
+.WithOpenApi();
 
 app.Run();
 
