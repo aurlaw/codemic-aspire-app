@@ -30,26 +30,35 @@ Requires Aspir8
 
 ## Aspir8
 
-Local Docker Respository
+[//]: # (Local Docker Respository)
 
-`docker run -d -p 5001:5000 --restart always --name registry registry:2`
+[//]: # ()
+[//]: # (`docker run -d -p 5001:5000 --restart always --name registry registry:2`)
 
-Initial set up using
+### Initial set up using
 
 These commands must be executed in the `CodemicAspireApp.AppHost` directory
 
 `aspirate init`
 
+Using Docker Desktop and Minikube
+` eval $(minikube -p minikube docker-env)`
 
-Build Aspire Manifest and docker images
-```bash
-aspirate build
-```
+### Build Aspire Manifest and docker images
+
+`aspirate build`
 
 Note: There is an issue with Aspir8 parsing the maniest.json file. Ensure all PORTS are set to explict string values and not placeholders
 
-Generate Kubernetes manifest
+### Generate Kubernetes manifest
 
-```bash
-aspirate generate -m manifest.json
-```
+`aspirate generate -m manifest.json`
+
+### Apply manifest to cluster
+
+`aspirate apply`
+
+[//]: # (When using Minkube, ensure its started with `--insecure-registry` flag)
+
+[//]: # ()
+[//]: # (`minikube start --insecure-registry "10.0.0.0/24"`)
