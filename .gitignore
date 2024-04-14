@@ -3,3 +3,6 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+
+/CodemicAspireApp/CodemicAspireApp.AppHost/aspirate-output/
+/CodemicAspireApp/CodemicAspireApp.AppHost/manifest.json
