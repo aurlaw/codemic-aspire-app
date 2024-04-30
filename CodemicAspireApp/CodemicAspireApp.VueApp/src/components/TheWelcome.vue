@@ -20,7 +20,7 @@ const error = ref(null);
 
 onMounted(() => {
 
-     fetch(`${import.meta.env.VITE_WEATHER_API_HTTPS || import.meta.env.VITE_WEATHER_API_HTTP}/weatherforecast`)
+     fetch('api/weatherforecast')
       .then(response => response.json())
       .then(data => {
         forecasts.value = data

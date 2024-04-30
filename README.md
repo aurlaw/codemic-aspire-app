@@ -48,7 +48,7 @@ Using Docker Desktop and Minikube
 
 `aspirate build`
 
-Note: There is an issue with Aspir8 parsing the maniest.json file. Ensure all PORTS are set to explict string values and not placeholders
+[//]: # (Note: There is an issue with Aspir8 parsing the maniest.json file. Ensure all PORTS are set to explicit string values and not placeholders)
 
 ### Generate Kubernetes manifest
 

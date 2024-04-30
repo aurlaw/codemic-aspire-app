@@ -7,12 +7,14 @@ var apiService = builder.AddProject<Projects.CodemicAspireApp_ApiService>("apise
 
 builder.AddProject<Projects.CodemicAspireApp_Web>("webfrontend")
     .WithReference(cache)
-    .WithReference(apiService);
+    .WithReference(apiService)
+    .WithExternalHttpEndpoints();
 
 // Vue: npm run dev
-builder.AddNpmApp("vue", "../CodemicAspireApp.VueApp", "dev")
+builder.AddNpmApp("vue", "../CodemicAspireApp.VueApp")
     .WithReference(apiService)
-    .WithHttpEndpoint(targetPort: 3002, env: "PORT")
+    .WithHttpEndpoint(env: "PORT")
+    .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
 
 builder.Build().Run();
