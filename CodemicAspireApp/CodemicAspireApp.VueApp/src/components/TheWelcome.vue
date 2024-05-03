@@ -20,7 +20,7 @@ const error = ref(null);
 
 onMounted(() => {
 
-     fetch('api/weatherforecast')
+     fetch('/api/weatherforecast')
       .then(response => response.json())
       .then(data => {
         forecasts.value = data

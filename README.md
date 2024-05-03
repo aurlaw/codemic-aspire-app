@@ -11,7 +11,11 @@ Demo app using .NET Aspire and .NET 8
 - Kubernetes(Minikube)
 Requires Aspir8
 
-`dotnet tool install -g aspirate --prerelease`
+```bash
+dotnet workload update
+dotnet workload install aspire
+dotnet tool install -g aspirate --prerelease
+```
 
 
  Run CodemicAspireApp.AppHost project to start the Aspire process.
@@ -62,3 +66,22 @@ Using Docker Desktop and Minikube
 
 [//]: # ()
 [//]: # (`minikube start --insecure-registry "10.0.0.0/24"`)
+
+### Testing
+
+We need to expose the service from Kubernetes
+
+```bash
+kubectl port-forward service/vue 8000:8000
+kubectl port-forward service/webfrontend  8080:8080
+kubectl port-forward service/aspire-dashboard  18888:18888
+```
+
+Vue app
+`http:/localhost:8000/`
+
+Blazor app
+`http:/localhost:8080/`
+
+Aspire Dashboard
+`http:/localhost:18888/`
