@@ -3,7 +3,7 @@
   "ContainerSettings": {
     "Registry": "",
     "RepositoryPrefix": "",
-    "Tag": "latest",
+    "Tag": "1.0.2.0",
     "Builder": "docker"
   }
 }

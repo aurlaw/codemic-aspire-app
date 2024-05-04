@@ -2,8 +2,11 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 // add redis for output caching
 var cache = builder.AddRedis("cache");
+var grpcService = builder.AddProject<Projects.CodemicAspireApp_GrpcService>("grpcservice")
+    .WithHttpsEndpoint();
 
-var apiService = builder.AddProject<Projects.CodemicAspireApp_ApiService>("apiservice");
+var apiService = builder.AddProject<Projects.CodemicAspireApp_ApiService>("apiservice")
+    .WithReference(grpcService);
 
 builder.AddProject<Projects.CodemicAspireApp_Web>("webfrontend")
     .WithReference(cache)

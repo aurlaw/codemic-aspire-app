@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodemicAspireApp.ApiService
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodemicAspireApp.Web", "CodemicAspireApp\CodemicAspireApp.Web\CodemicAspireApp.Web.csproj", "{F431B503-8555-49DC-99D0-24056EDBD1C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodemicAspireApp.GrpcService", "CodemicAspireApp\CodemicAspireApp.GrpcService\CodemicAspireApp.GrpcService.csproj", "{F938F13A-FB36-4E9D-BDB7-4E04C132A6D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{F431B503-8555-49DC-99D0-24056EDBD1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F431B503-8555-49DC-99D0-24056EDBD1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F431B503-8555-49DC-99D0-24056EDBD1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F938F13A-FB36-4E9D-BDB7-4E04C132A6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F938F13A-FB36-4E9D-BDB7-4E04C132A6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F938F13A-FB36-4E9D-BDB7-4E04C132A6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F938F13A-FB36-4E9D-BDB7-4E04C132A6D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

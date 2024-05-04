@@ -10,6 +10,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CodemicAspireApp.ApiService\CodemicAspireApp.ApiService.csproj"/>
+        <ProjectReference Include="..\CodemicAspireApp.GrpcService\CodemicAspireApp.GrpcService.csproj" />
         <ProjectReference Include="..\CodemicAspireApp.Web\CodemicAspireApp.Web.csproj"/>
     </ItemGroup>
 

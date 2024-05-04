@@ -1,4 +1,6 @@
 using CodemicAspireApp.ServiceDefaults;
+using Grpc.Net.Client;
+using CodemicAspireApp.GrpcService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,13 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
+builder.Services
+    .AddGrpcClient<Greeter.GreeterClient>(
+        options =>
+        {
+            options.Address = new Uri("http://grpcservice");
+        }
+    );
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
@@ -50,6 +59,19 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.MapGet("/greeting/{name}", async (string name, Greeter.GreeterClient client) =>
+    {
+        var reply = await client.SayHelloAsync(new HelloRequest { Name = name });
+        var result = new
+        {
+            Message = reply.Message
+        };
+        return result;
+    })
+.WithName("GetGreeting")
+.WithOpenApi();
+
 
 app.Run();
 

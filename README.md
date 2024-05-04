@@ -15,8 +15,29 @@ Requires Aspir8
 dotnet workload update
 dotnet workload install aspire
 dotnet tool install -g aspirate --prerelease
+dotnet tool install -g dotnet-grpc
 ```
 
+This project contains the following services
+
+- Redis Cache
+- gRPC Service
+- Minimal API Service
+- Blazor Web app
+- Vue SPA
+
+
+#### Grpc Service
+
+Uses shared proto files
+```bash
+cd CodemicAspireApp/CodemicAspireApp.GrpcService
+dotnet-grpc add-file -s Server ../Shared/Protos/*.proto
+
+cd CodemicAspireApp/CodemicAspireApp.ApiService
+dotnet-grpc add-file -s Client ../Shared/Protos/*.proto
+
+```
 
  Run CodemicAspireApp.AppHost project to start the Aspire process.
 
@@ -46,7 +67,8 @@ These commands must be executed in the `CodemicAspireApp.AppHost` directory
 `aspirate init`
 
 Using Docker Desktop and Minikube
-` eval $(minikube -p minikube docker-env)`
+
+`eval $(minikube -p minikube docker-env)`
 
 ### Build Aspire Manifest and docker images
 
@@ -72,6 +94,7 @@ Using Docker Desktop and Minikube
 We need to expose the service from Kubernetes
 
 ```bash
+kubectl port-forward service/apiservice 7080:8080
 kubectl port-forward service/vue 8000:8000
 kubectl port-forward service/webfrontend  8080:8080
 kubectl port-forward service/aspire-dashboard  18888:18888
