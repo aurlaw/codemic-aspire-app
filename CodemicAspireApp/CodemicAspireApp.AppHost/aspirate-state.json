@@ -1,0 +1,30 @@
+{
+  "projectPath": ".",
+  "allowClearNamespace": true,
+  "containerImageTags": [
+    "latest"
+  ],
+  "imagePullPolicy": "IfNotPresent",
+  "containerBuilder": "docker",
+  "kubeContext": "minikube",
+  "outputFormat": "kustomize",
+  "privateRegistryEmail": "aspir8@aka.ms",
+  "includeDashboard": true,
+  "useCustomNamespace": false,
+  "secrets": {
+    "salt": "za5ijEaGlb4v\u002Bpw1",
+    "hash": "yC0lXhAbxaICN\u002Bht4tSIhyXo8yh7EBjSZZlNmMx/gIs=",
+    "secrets": {
+      "cache": {},
+      "grpcservice": {},
+      "apiservice": {},
+      "webfrontend": {
+        "ConnectionStrings__cache": "za5ijEaGlb4v\u002Bpw1GrA1rhHfzhmuMSpm7tSWsgKFCDxOr9RD2Mk="
+      },
+      "vue": {}
+    }
+  },
+  "processAllComponents": true,
+  "existingSecretsType": "Existing",
+  "isRunning": true
+}

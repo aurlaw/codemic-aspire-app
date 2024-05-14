@@ -5,7 +5,7 @@ Demo app using .NET Aspire and .NET 8
 ## Prerequisites
 
 - .NET 8 SDK
-- Aspire
+- Aspire Preview 7
 - Aspir8
 - Docker
 - Kubernetes(Minikube)
@@ -74,11 +74,15 @@ Using Docker Desktop and Minikube
 
 `aspirate build`
 
+append `-ct TAG` for custom tags
+
 [//]: # (Note: There is an issue with Aspir8 parsing the maniest.json file. Ensure all PORTS are set to explicit string values and not placeholders)
 
 ### Generate Kubernetes manifest
 
-`aspirate generate -m manifest.json`
+`aspirate generate -m manifest.json` 
+
+append `-ct TAG` for custom tags
 
 ### Apply manifest to cluster
 

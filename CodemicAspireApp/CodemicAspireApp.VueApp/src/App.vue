@@ -2,7 +2,12 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
+const version = import.meta.env.PACKAGE_VERSION
+const message = `Codemic Aspire v${version}`;
 console.log(import.meta.url);
+console.log(version);
+
+
 </script>
 
 <template>
@@ -10,7 +15,7 @@ console.log(import.meta.url);
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="Codemic Aspire v2" />
+      <HelloWorld :msg="message" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>

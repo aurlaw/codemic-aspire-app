@@ -1,10 +1,11 @@
 {
   "TemplatePath": null,
   "ContainerSettings": {
-    "Registry": "",
-    "RepositoryPrefix": "",
-    "Tag": "1.0.2.0",
-    "Builder": "docker"
+    "Registry": null,
+    "RepositoryPrefix": null,
+    "Tags": [
+      "1.0.3.0"
+    ],
+    "Builder": null
   }
 }
-
