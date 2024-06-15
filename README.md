@@ -5,7 +5,7 @@ Demo app using .NET Aspire and .NET 8
 ## Prerequisites
 
 - .NET 8 SDK
-- Aspire Preview 7
+- Aspire 
 - Aspir8
 - Docker
 - Kubernetes(Minikube)

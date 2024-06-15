@@ -1,6 +1,7 @@
 {
   "projectPath": ".",
-  "allowClearNamespace": true,
+  "inputPath": "aspirate-output",
+  "outputPath": "aspirate-output",
   "containerImageTags": [
     "latest"
   ],
@@ -8,6 +9,7 @@
   "containerBuilder": "docker",
   "kubeContext": "minikube",
   "outputFormat": "kustomize",
+  "skipFinalKustomizeGeneration": false,
   "privateRegistryEmail": "aspir8@aka.ms",
   "includeDashboard": true,
   "useCustomNamespace": false,
@@ -24,7 +26,5 @@
       "vue": {}
     }
   },
-  "processAllComponents": true,
-  "existingSecretsType": "Existing",
-  "isRunning": true
+  "processAllComponents": true
 }
